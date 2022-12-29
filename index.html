@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tax Calculator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  
+  
+  <div class="border">
+  
+    <input class="calculator" id="val" placeholder="Gross monthly income"></input>
+  <div class = "calculator">
+  <button id="button" value="1" class="button" onclick="myFunction()">1</button>
+    <button id="button" value="2" class="button" onclick="myFunction()">2</button>
+    <button id="button"value="3"  class="button" onclick="myFunction()">3</button>
+  </div><div class="calculator">
+    <button id="button" value="4" class="button" onclick="myFunction()">4</button>
+    <button id="button" value="5" class="button" onclick="myFunction()">5</button>
+    <button id="button" value="6" class="button" onclick="myFunction()">6</button>
+  </div> <div class="calculator">  
+    <button id="button" value="7" class="button" onclick="myFunction()">7</button>
+    <button id="button" value="8" class="button" onclick="myFunction()">8</button>
+    <button id="button" value="9" class="button" onclick="myFunction()">9</button>
+  </div><div class="calculator">
+    <button id="button" value="0" class="button" onclick="myFunction()">0</button>
+    <button id="res" class="equal">=</button>
+  </div>
+    <button id="submit" onclick="total()">Confirm</button>
+  </div>
+  
+  </div>
+  <div class="display">
+  <h1>The net income is</h1>
+  <h2 id="output"> </h2>
+  <h1>The amount of tax is</h1>
+  <h2 id="sum"></h2>
+  </div>
+  <script>
+    let result = 0;
+var input = document.querySelector("#val")
+var buttons = document.querySelectorAll("button.button")
+
+
+for (i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function(event) {
+    input.value = input.value + event.currentTarget.value
+  })
+}
+function calculator() {
+  let init = document.getElementById("val").value;
+  let outside = document.getElementById("output").textContent;
+  let oth = document.getElementById("sum").textContent;
+  console.log(init);
+  let after = parseInt(init);
+  console.log(typeof(after));
+  if (after < 18201) {
+    outside = after;
+    output.textContent = after;
+    sum.textContent = "0";
+  } 
+  if (after > 18200 && after < 45001) {
+    //star is to show the excess of the income after 18000
+    //end is meant to bet the taz
+    
+    let star = after - 18200;
+    let end  = 0
+    for (let i = 0; i < star; i++) {
+           end = end + 0.19;
+    }
+    console.log(end);
+    end = end.toFixed(2);
+    console.log(end);
+    after = after - end;
+    output.textContent = after;
+    sum.textContent = end;
+
+  }
+  if (after > 45000 && after < 120001) {
+    let star = after - 45000;
+    let end = 0;
+    for (let i = 0; i < star; i++) {
+      end = end + 0.325;
+    }
+    end = end + 5092;
+    end = end.toFixed(2);
+    console.log(end);
+    after = after - end;
+    output.textContent = after;
+    sum.textContent = end;
+  
+  }
+  if (after > 120000 && after < 180001) {
+    let star = after - 120000;
+    let end = 0;
+    for (let i = 0; i < star; i++) {
+      end = end + 0.37;
+    }
+    end = end + 29467;
+
+    end = end.toFixed(2);
+    console.log(end);
+    after = after - end;
+    output.textContent = after;
+    sum.textContent = end;
+  }
+  if(after > 180000) {
+    let star = after - 180000;
+    let end = 0;
+    for (let i = 0; i < star; i++) {
+      end = end + 0.45;
+    }
+    end = end + 51667;
+    end = end.toFixed(2);
+    console.log(end);
+    after = after - end;
+    output.textContent = after;
+    sum.textContent = end;
+  }
+
+}
+submit.onclick = calculator;
+//currently, the value is in the console, but it doesnt get transferred to the html
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>
