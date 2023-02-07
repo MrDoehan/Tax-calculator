@@ -1,0 +1,44 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: courier;
+
+}
+.calculator {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  
+
+}
+button {
+  font-size: 350%;
+  margin: 0.6%;
+  border-radius: 5px;
+  
+}
+.border {
+  margin:auto;
+  
+
+  width: 35%;
+  border-radius: 5px;
+  padding: 3%;
+  
+}
+input {
+  font-size: 200%;
+}
+#submit {
+  display: block;
+}
+.display {
+  margin-left: 40%;
+  margin-right: 50%;
+  width: 30%;
+}
+h2 {
+  font-size: 310%;
+  
+}
